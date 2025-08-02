@@ -163,6 +163,20 @@ const App = () => {
     const [formConfig, setFormConfig] = useState({});
 
     const handleApplyNow = () => {
+        // --- NEW: Tracking code for button clicks ---
+        // Track event in Meta Pixel
+        if (typeof fbq === 'function') {
+            fbq('track', 'Lead');
+        }
+        // Track event in Google Analytics
+        if (typeof gtag === 'function') {
+            gtag('event', 'click', {
+                'event_category': 'Button',
+                'event_label': 'Apply Now'
+            });
+        }
+        // --- End of new tracking code ---
+
         setFormConfig({});
         setAppState('form');
     };
@@ -210,7 +224,7 @@ const App = () => {
                         </div>
                         <div className="card">
                             <div className="video-container">
-                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/t2_AJ0WZpu0?si=3XV0M2lhl-j2zXs2&rel=0&showinfo=0&modestbranding=1&loop=1&playlist=t2_AJ0WZpu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/t2_AJ0WZpu0?si=3XV0M2lhl-j2zXs2&rel=0&showinfo=0&modestbranding=1&loop=1&playlist=t2_AJ0WZpu0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             </div>
                             <button onClick={handleApplyNow} className="cta-button main-apply-button" style={{marginTop: '2.5rem'}}>
                                 Apply Now
