@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social SEO Application</title>
-    <link rel="icon" href="Logo.png" type="image/png">
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -24,7 +23,7 @@
             -moz-osx-font-smoothing: grayscale;
             background-color: #010414; /* Darker base color */
             color: white;
-            overflow: hidden; /* Prevent scrollbars from animations */
+            overflow-x: hidden;
         }
 
         #root {
@@ -34,7 +33,7 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
-            padding: 40px 20px;
+            padding: 120px 20px 40px; /* Added top padding for header */
             box-sizing: border-box;
             position: relative;
             z-index: 1;
@@ -99,6 +98,28 @@
             from { transform: translate(50%, 50%) scale(1); }
             to { transform: translate(calc(50% + 100px), calc(50% - 100px)) scale(1.1); }
         }
+        
+        /* Header Styles */
+        .app-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            z-index: 10;
+            background: rgba(1, 4, 20, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo img {
+            height: 40px;
+        }
 
         /* Card Styles with Glowing Border */
         @property --angle {
@@ -160,7 +181,6 @@
             margin: 0;
         }
 
-        /* Metallic Silver Chroma Effect with Blue Tint */
         .gradient-text {
             background: linear-gradient(110deg, #a8c0ff 8%, #fafafa 18%, #a8c0ff 33%);
             -webkit-background-clip: text;
@@ -186,25 +206,30 @@
             max-width: 500px;
         }
         
-        .video-placeholder {
+        /* UPDATED: Video container with overlay */
+        .video-wrapper {
+            position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;
-            background: rgba(0,0,0,0.3);
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
             border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            border: 2px dashed rgba(255,255,255,0.2);
-            color: rgba(255,255,255,0.5);
-            font-size: 1.2rem;
-            font-weight: 500;
         }
-        .video-placeholder svg {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 1rem;
-            opacity: 0.5;
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75%; /* Covers the top part with title/logo, leaves bottom controls clickable */
+            z-index: 1;
         }
 
         .cta-button {
@@ -221,12 +246,15 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(66, 165, 245, 0.3), 0 0 40px rgba(66, 165, 245, 0.5);
         }
+        .header-apply-button {
+            padding: 10px 22px;
+            font-size: 1rem;
+        }
         .main-apply-button {
             padding: 15px 40px;
             font-size: 1.2rem;
         }
 
-        /* Social links for bottom of page */
         .social-links-bottom {
             display: flex;
             justify-content: center;
@@ -245,7 +273,6 @@
             width: 28px;
             height: 28px;
         }
-
 
         /* Form & Result Styles */
         .form-question, .result-container {
@@ -347,13 +374,10 @@
         const { useState, useEffect } = React;
         const { createClient } = supabase;
 
-        // The anon key is safe to be public and is placed here directly.
         const SUPABASE_URL = 'https://meoxudpjfgqkojqwaeii.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lb3h1ZHBqZmdxa29qcXdhZWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM4ODY0MDksImV4cCI6MjA2OTQ2MjQwOX0.EpxHDQNDpxHz2g_dKDDR05-JRdgKo26xyJRcL7QXIGw';
         const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-
-        // Configuration for all the questions in the form
         const questions = [
             { id: 'name', label: 'What is your full name?', type: 'text', placeholder: 'e.g., Jane Doe' },
             { id: 'email', label: 'What is your best email address?', type: 'email', placeholder: 'e.g., jane.doe@gmail.com' },
@@ -367,7 +391,6 @@
             },
         ];
 
-        // Component for the multi-step form
         const MultiStepForm = ({ onFormSubmit, initialData = {}, initialStep = 0 }) => {
             const [step, setStep] = useState(initialStep);
             const [formData, setFormData] = useState({
@@ -382,7 +405,7 @@
             const handleInputChange = (e) => {
                 let { name, value } = e.target;
                 if (name === 'phone') {
-                    value = value.replace(/\D/g, ''); // Only allow digits
+                    value = value.replace(/\D/g, '');
                 }
                 setFormData(prev => ({ ...prev, [name]: value }));
             };
@@ -458,7 +481,6 @@
             );
         };
         
-        // Component for the result screen
         const ResultScreen = ({ result, onEditLastAnswer }) => {
             const getResultContent = () => {
                 switch (result.type) {
@@ -508,19 +530,17 @@
             );
         };
 
-        // Main App Component
         const App = () => {
-            const [appState, setAppState] = useState('landing'); // 'landing', 'form', 'result'
+            const [appState, setAppState] = useState('landing');
             const [formData, setFormData] = useState(null);
             const [formConfig, setFormConfig] = useState({});
 
             const handleApplyNow = () => {
-                setFormConfig({}); // Start a fresh form
+                setFormConfig({});
                 setAppState('form');
             };
             
             const handleEditLastAnswer = () => {
-                // Pre-config form to start at last question with existing data
                 setFormConfig({
                     initialData: formData.data,
                     initialStep: questions.length - 1
@@ -528,19 +548,12 @@
                 setAppState('form');
             }
 
-            // This function now sends data to Supabase
             const handleFormSubmit = async (submittedData) => {
-                console.log('Final Form Data:', submittedData);
-
                 try {
                     const { data, error } = await supabaseClient
                         .from('submissions')
                         .insert([ submittedData ]);
-
-                    if (error) {
-                        throw error;
-                    }
-
+                    if (error) throw error;
                     console.log('Data sent to Supabase:', data);
                 } catch (error) {
                     console.error('Error sending to Supabase:', error.message);
@@ -548,11 +561,8 @@
                 
                 const { investment } = submittedData;
                 let resultType = 'qualified_full';
-
                 if (investment === '< $500') resultType = 'not_qualified';
                 else if (investment === '$500 - $1000') resultType = 'qualified_basic';
-                else if (investment === '$1000 - $5000') resultType = 'qualified_full';
-
                 setFormData({ type: resultType, data: submittedData });
                 setAppState('result');
             };
@@ -572,9 +582,9 @@
                                     <p className="sub-heading">A mathematically proven way to get consistent virality.</p>
                                 </div>
                                 <div className="card">
-                                    <div className="video-placeholder">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
-                                        <span>Video VSL Placeholder</span>
+                                    <div className="video-wrapper">
+                                        <div className="video-overlay"></div>
+                                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/t2_AJ0WZpu0?si=3XV0M2lhl-j2zXs2&autoplay=1&mute=1&controls=0&showinfo=0&modestbranding=1&loop=1&playlist=t2_AJ0WZpu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                     </div>
                                     <button onClick={handleApplyNow} className="cta-button main-apply-button" style={{marginTop: '2.5rem'}}>
                                         Apply Now
@@ -600,6 +610,13 @@
                         <div className="shape shape2"></div>
                         <div className="shape shape3"></div>
                     </div>
+                    
+                    <header className="app-header">
+                        <div className="logo">
+                            <img src="Logo.png" alt="Social SEO Logo" />
+                        </div>
+                        <button onClick={handleApplyNow} className="cta-button header-apply-button">Apply Now</button>
+                    </header>
                     
                     {renderContent()}
 
