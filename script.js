@@ -2,14 +2,14 @@ const { useState, useEffect } = React;
 const { createClient } = supabase;
 
 const SUPABASE_URL = 'https://meoxudpjfgqkojqwaeii.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lb3h1ZHBqZmdxa29qcXdhZWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM4ODY0MDksImV4cCI6MjA2OTQ2MjQwOX0.EpxHDQNDpxHz2g_dKDDR05-JRdgKo26xyJRcL7QXIGw';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lb3h1ZHBqZmdxa29qcXdhZWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM4ODY0MDksImV4cCI6MjA2OTQ6MjQwOX0.EpxHDQNDpxHz2g_dKDDR05-JRdgKo26xyJRcL7QXIGw';
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const questions = [
     { id: 'name', label: 'What is your full name?', type: 'text', placeholder: 'e.g., Jane Doe' },
     { id: 'email', label: 'What is your best email address?', type: 'email', placeholder: 'e.g., jane.doe@gmail.com' },
     { id: 'phone', label: 'And your phone number?', type: 'tel', placeholder: 'e.g., 1234567890' },
-    { id: 'instagram_url', label: 'What is your Instagram Profile URL?', type: 'url', placeholder: 'https://instagram.com/yourprofile' },
+    { id: 'instagram_url', label: 'What is your Instagram Profile URL?', type: 'text', placeholder: 'https://instagram.com/yourprofile' },
     {
         id: 'investment',
         label: 'How much are you able to invest monthly?',
@@ -38,7 +38,6 @@ const MultiStepForm = ({ onFormSubmit, initialData = {}, initialStep = 0 }) => {
     };
 
     const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
-    const validateInstaUrl = (url) => /^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9(\.\?)?]{1,30}\/?$/.test(String(url).toLowerCase());
 
     const handleNext = () => {
         const currentQuestion = questions[step];
@@ -50,10 +49,6 @@ const MultiStepForm = ({ onFormSubmit, initialData = {}, initialStep = 0 }) => {
         }
         if (currentQuestion.id === 'email' && !validateEmail(value)) {
             setError('Please enter a valid email address.');
-            return;
-        }
-        if (currentQuestion.id === 'instagram_url' && !validateInstaUrl(value)) {
-            setError('Please enter a valid Instagram profile URL.');
             return;
         }
 
