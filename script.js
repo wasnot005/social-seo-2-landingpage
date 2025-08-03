@@ -2,7 +2,7 @@ const { useState, useEffect } = React;
 const { createClient } = supabase;
 
 const SUPABASE_URL = 'https://meoxudpjfgqkojqwaeii.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lb3h1ZHBqZmdxa29qcXdhZWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM4ODY0MDksImV4cCI6MjA2OTQ6MjQwOX0.EpxHDQNDpxHz2g_dKDDR05-JRdgKo26xyJRcL7QXIGw';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lb3h1ZHBqZmdxa29qcXdhZWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM4ODY0MDksImV4cCI6MjA2OTQ2MjQwOX0.EpxHDQNDpxHz2g_dKDDR05-JRdgKo26xyJRcL7QXIGw';
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const questions = [
