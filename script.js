@@ -4,12 +4,11 @@ const { createClient } = supabase;
 const SUPABASE_URL = 'https://meoxudpjfgqkojqwaeii.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lb3h1ZHBqZmdxa29qcXdhZWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM4ODY0MDksImV4cCI6MjA2OTQ2MjQwOX0.EpxHDQNDpxHz2g_dKDDR05-JRdgKo26xyJRcL7QXIGw';
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
 const questions = [
     { id: 'name', label: 'What is your full name?', type: 'text', placeholder: 'e.g., Jane Doe' },
     { id: 'email', label: 'What is your best email address?', type: 'email', placeholder: 'e.g., jane.doe@gmail.com' },
     { id: 'phone', label: 'And your phone number?', type: 'tel', placeholder: 'e.g., 1234567890' },
-    { id: 'instagram_url', label: 'What is your Instagram Handle?', type: 'text', placeholder: '@yourhandle' },
+    { id: 'instagram_url', label: 'What is your Instagram Profile URL?', type: 'text', placeholder: 'https://instagram.com/yourprofile' },
     {
         id: 'investment',
         label: 'How much are you able to invest monthly?',
@@ -225,4 +224,38 @@ const App = () => {
                         </div>
                         <div className="social-links-bottom">
                             <a href="https://www.instagram.com/wasnotedits/profilecard/?igsh=MXQ3aXhtdmxremdibQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.2,5.2 0 0,1 16.2,21.4H7.8C4.6,21.4 2,18.8 2,15.6V7.8A5.2,5.2 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.2
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.2,5.2 0 0,1 16.2,21.4H7.8C4.6,21.4 2,18.8 2,15.6V7.8A5.2,5.2 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/suresh-malani-a89b73262?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69.75 1.68 1.68 0 0 0 0 1.88 1.68 1.68 0 0 0 1.69.75M8.27 18.5H5.5V10.13h2.77v8.37Z" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                );
+        }
+    };
+
+    return (
+        <>
+            <div className="background-container">
+                <div className="shape shape1"></div>
+                <div className="shape shape2"></div>
+                <div className="shape shape3"></div>
+            </div>
+            
+            <header className="app-header">
+                <div className="logo">
+                    <img src="Logo.png" alt="Social SEO Logo" />
+                </div>
+                <button onClick={handleApplyNow} className="cta-button header-apply-button">Apply Now</button>
+            </header>
+            
+            {renderContent()}
+
+        </>
+    );
+};
+
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<App />);
