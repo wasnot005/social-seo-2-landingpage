@@ -9,7 +9,7 @@ const questions = [
     { id: 'name', label: 'What is your full name?', type: 'text', placeholder: 'e.g., Jane Doe' },
     { id: 'email', label: 'What is your best email address?', type: 'email', placeholder: 'e.g., jane.doe@gmail.com' },
     { id: 'phone', label: 'And your phone number?', type: 'tel', placeholder: 'e.g., 1234567890' },
-    { id: 'instagram_url', label: 'What is your Instagram Profile URL?', type: 'url', placeholder: 'https://instagram.com/yourprofile' },
+    { id: 'instagram_url', label: 'What is your Instagram Handle?', type: 'text', placeholder: '@yourhandle' },
     {
         id: 'investment',
         label: 'How much are you able to invest monthly?',
@@ -38,7 +38,6 @@ const MultiStepForm = ({ onFormSubmit, initialData = {}, initialStep = 0 }) => {
     };
 
     const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
-    const validateInstaUrl = (url) => /^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9(\.\?)?]{1,30}\/?$/.test(String(url).toLowerCase());
 
     const handleNext = () => {
         const currentQuestion = questions[step];
@@ -50,10 +49,6 @@ const MultiStepForm = ({ onFormSubmit, initialData = {}, initialStep = 0 }) => {
         }
         if (currentQuestion.id === 'email' && !validateEmail(value)) {
             setError('Please enter a valid email address.');
-            return;
-        }
-        if (currentQuestion.id === 'instagram_url' && !validateInstaUrl(value)) {
-            setError('Please enter a valid Instagram profile URL.');
             return;
         }
 
@@ -118,16 +113,11 @@ const ResultScreen = ({ result, onEditLastAnswer }) => {
                     showEditButton: true,
                 };
             case 'qualified_basic':
-                return {
-                    title: "🎉 You've Been Pre-Qualified!",
-                    message: "You are a great candidate for our '0-to-1 Visibility' package. We are looking forward to getting on a call with you!",
-                    showCalendly: true,
-                };
             case 'qualified_full':
                 return {
-                    title: "🚀 Congratulations!",
-                    message: "Your profile aligns perfectly with our core Social SEO services. The next step is to book a discovery call to discuss your goals in detail. We are looking forward to getting on a call with you!",
-                    showCalendly: true,
+                    title: "✅ You're on the Waitlist!",
+                    message: "Thank you for your interest! We've added you to our waitlist and will notify you as soon as applications reopen.",
+                    showCalendly: false, // Changed from true
                 };
             default:
                 return { title: "Thank You!", message: "We've received your submission." };
@@ -140,7 +130,7 @@ const ResultScreen = ({ result, onEditLastAnswer }) => {
         <div className="card result-container">
             <h2>{title}</h2>
             <p>{message}</p>
-            {showCalendly && (
+            {showCalendly && ( // This block will now be hidden for qualified users
                 <div>
                     <p>Please schedule a meeting with us via the link below:</p>
                     <a href="https://calendly.com/personalbrand-wasnot/15-minutes-discovery-call" target="_blank" rel="noopener noreferrer" className="calendly-link">
@@ -163,7 +153,6 @@ const App = () => {
     const [formConfig, setFormConfig] = useState({});
 
     const handleApplyNow = () => {
-        // --- NEW: Tracking code for button clicks ---
         // Track event in Meta Pixel
         if (typeof fbq === 'function') {
             fbq('track', 'Lead');
@@ -172,10 +161,9 @@ const App = () => {
         if (typeof gtag === 'function') {
             gtag('event', 'click', {
                 'event_category': 'Button',
-                'event_label': 'Apply Now'
+                'event_label': 'Join Waitlist' // Changed from 'Apply Now'
             });
         }
-        // --- End of new tracking code ---
 
         setFormConfig({});
         setAppState('form');
@@ -224,10 +212,10 @@ const App = () => {
                         </div>
                         <div className="card">
                             <div className="video-container">
-                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/t2_AJ0WZpu0?si=3XV0M2lhl-j2zXs2&rel=0&showinfo=0&modestbranding=1&loop=1&playlist=t2_AJ0WZpu0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yLh5o0GR2Fg?si=PZYkdUCP5Eqfe023&rel=0&showinfo=0&modestbranding=1&loop=1&playlist=yLh5o0GR2Fg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
                             <button onClick={handleApplyNow} className="cta-button main-apply-button" style={{marginTop: '2.5rem'}}>
-                                Apply Now
+                                Join Waitlist
                             </button>
                         </div>
                         <div className="social-links-bottom">
@@ -244,7 +232,7 @@ const App = () => {
     };
 
     return (
-        <>
+        <React.Fragment>
             <div className="background-container">
                 <div className="shape shape1"></div>
                 <div className="shape shape2"></div>
@@ -255,12 +243,12 @@ const App = () => {
                 <div className="logo">
                     <img src="Logo.png" alt="Social SEO Logo" />
                 </div>
-                <button onClick={handleApplyNow} className="cta-button header-apply-button">Apply Now</button>
+                <button onClick={handleApplyNow} className="cta-button header-apply-button">Join Waitlist</button>
             </header>
             
             {renderContent()}
 
-        </>
+        </React.Fragment>
     );
 };
 
