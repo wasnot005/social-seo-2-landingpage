@@ -9,7 +9,7 @@ const questions = [
     { id: 'name', label: 'What is your full name?', type: 'text', placeholder: 'e.g., Jane Doe' },
     { id: 'email', label: 'What is your best email address?', type: 'email', placeholder: 'e.g., jane.doe@gmail.com' },
     { id: 'phone', label: 'And your phone number?', type: 'tel', placeholder: 'e.g., 1234567890' },
-    { id: 'instagram_url', label: 'What is your Instagram Profile URL?', type: 'url', placeholder: 'https://instagram.com/yourprofile' },
+    { id: 'instagram_url', label: 'What is your Instagram Profile URL?', type: 'text', placeholder: 'https://instagram.com/yourprofile' },
     {
         id: 'investment',
         label: 'How much are you able to invest monthly?',
@@ -48,12 +48,9 @@ const MultiStepForm = ({ onFormSubmit, initialData = {}, initialStep = 0 }) => {
             setError('This field is required.');
             return;
         }
+        // Validate email format; instagram_url remains plain text.
         if (currentQuestion.id === 'email' && !validateEmail(value)) {
             setError('Please enter a valid email address.');
-            return;
-        }
-        if (currentQuestion.id === 'instagram_url' && !validateInstaUrl(value)) {
-            setError('Please enter a valid Instagram profile URL.');
             return;
         }
 
