@@ -174,8 +174,10 @@ const App = () => {
         }
         // --- End of new tracking code ---
 
-        setFormConfig({});
-        setAppState('form');
+        // setFormConfig({});
+        // setAppState('form');
+        
+        window.location.href = "https://calendly.com/personalbrand-wasnot/15-minutes-discovery-call";
     };
     
     const handleEditLastAnswer = () => {
