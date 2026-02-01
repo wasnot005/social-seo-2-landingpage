@@ -21,8 +21,8 @@ const questions = [
 const MultiStepForm = ({ onFormSubmit, initialData = {}, initialStep = 0 }) => {
     const [step, setStep] = useState(initialStep);
     const [formData, setFormData] = useState({
-        name: '', email: '', phone: '', 
-        instagram_url: '', 
+        name: '', email: '', phone: '',
+        instagram_url: '',
         investment: '',
         ...initialData
     });
@@ -140,7 +140,7 @@ const ResultScreen = ({ result, onEditLastAnswer }) => {
             {showCalendly && (
                 <div>
                     <p>Please schedule a meeting with us via the link below:</p>
-                    <a href="https://calendly.com/personalbrand-wasnot/15-minutes-discovery-call" target="_blank" rel="noopener noreferrer" className="calendly-link">
+                    <a href="https://calendly.com/suresh-socialseo/socialseo-instant-report" target="_blank" rel="noopener noreferrer" className="calendly-link">
                         Book a Call on Calendly
                     </a>
                 </div>
@@ -176,10 +176,10 @@ const App = () => {
 
         // setFormConfig({});
         // setAppState('form');
-        
-        window.location.href = "https://calendly.com/personalbrand-wasnot/15-minutes-discovery-call";
+
+        window.location.href = "https://calendly.com/suresh-socialseo/socialseo-instant-report";
     };
-    
+
     const handleEditLastAnswer = () => {
         setFormConfig({
             initialData: formData.data,
@@ -192,13 +192,13 @@ const App = () => {
         try {
             const { data, error } = await supabaseClient
                 .from('submissions')
-                .insert([ submittedData ]);
+                .insert([submittedData]);
             if (error) throw error;
             console.log('Data sent to Supabase:', data);
         } catch (error) {
             console.error('Error sending to Supabase:', error.message);
         }
-        
+
         const { investment } = submittedData;
         let resultType = 'qualified_full';
         if (investment === '< $500') resultType = 'not_qualified';
@@ -223,9 +223,9 @@ const App = () => {
                         </div>
                         <div className="card">
                             <div className="video-container">
-                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/t2_AJ0WZpu0?si=3XV0M2lhl-j2zXs2&rel=0&showinfo=0&modestbranding=1&loop=1&playlist=t2_AJ0WZpu0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6hMCr1-X1g0?si=3XV0M2lhl-j2zXs2&rel=0&showinfo=0&modestbranding=1&loop=1&playlist=6hMCr1-X1g0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             </div>
-                            <button onClick={handleApplyNow} className="cta-button main-apply-button" style={{marginTop: '2.5rem'}}>
+                            <button onClick={handleApplyNow} className="cta-button main-apply-button" style={{ marginTop: '2.5rem' }}>
                                 Apply Now
                             </button>
                         </div>
@@ -249,14 +249,14 @@ const App = () => {
                 <div className="shape shape2"></div>
                 <div className="shape shape3"></div>
             </div>
-            
+
             <header className="app-header">
                 <div className="logo">
                     <img src="Logo.png" alt="Social SEO Logo" />
                 </div>
                 <button onClick={handleApplyNow} className="cta-button header-apply-button">Apply Now</button>
             </header>
-            
+
             {renderContent()}
 
         </>
