@@ -266,3 +266,10 @@ const App = () => {
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 root.render(<App />);
+
+// Dismiss loading screen after app renders
+const loadingScreen = document.getElementById('loading-screen');
+if (loadingScreen) {
+    loadingScreen.classList.add('fade-out');
+    setTimeout(() => loadingScreen.remove(), 400);
+}

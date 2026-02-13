@@ -11,6 +11,7 @@
     <meta property="og:description" content="A mathematically proven way to get consistent virality.">
     <meta property="og:image" content="https://socialseo.in/preview-image.png">
     <meta property="og:url" content="https://socialseo.in">
+
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -21,47 +22,66 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '858278206999402');
+    fbq('init', '1328226029067672');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=858278206999402&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=1328226029067672&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-        <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QRRG2GFLS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-4QRRG2GFLS');
     </script>
-    src="https://www.facebook.com/tr?id=1478448773282179&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
 
-    <!-- Supabase Client Library -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
-    <!-- React Libraries -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
+    <!-- Inline critical styles to prevent FOUC -->
+    <style>
+      body { margin: 0; background-color: #010414; }
+      #loading-screen {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: #010414; display: flex; justify-content: center;
+        align-items: center; z-index: 9999;
+        transition: opacity 0.4s ease;
+      }
+      #loading-screen.fade-out { opacity: 0; pointer-events: none; }
+      .spinner {
+        width: 40px; height: 40px;
+        border: 3px solid rgba(66,165,245,0.2);
+        border-top-color: #42a5f5;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Link to your new CSS file -->
+
+    <!-- Link to your CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading screen shown instantly while scripts load -->
+    <div id="loading-screen"><div class="spinner"></div></div>
+
     <div id="root"></div>
 
-    <!-- Link to your new JavaScript file (cache-busted) -->
-    <script type="text/babel" src="script.js?v=1"></script>
+    <!-- Supabase Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- React Libraries (production builds for faster load) -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- App script (cache-busted) -->
+    <script type="text/babel" src="script.js?v=2"></script>
 </body>
 </html>
