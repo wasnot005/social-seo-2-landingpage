@@ -230,6 +230,21 @@ const App = () => {
                             </button>
                         </div>
 
+                        <div className="card info-card">
+                            <h2 className="section-heading">About Me</h2>
+                            <p className="section-text">
+                                Hi, I'm Suresh Malani, a 20-year-old content agency owner and the founder of Social SEO. What started with a single laptop has evolved into an AI-powered content automation machine that processes over 6,000 videos a month for 12+ premium clients. Our methodology moves beyond generic "value" and vanity metrics to build powerful, Founder-Led Personal Brands using data-driven, mathematically tested strategies (what we call Social SEO). We specialize in giving founders and business owners their distribution channel back, so they can focus entirely on what they do best without spending hours in front of a camera.
+                            </p>
+                        </div>
+
+                        <div className="card info-card">
+                            <h2 className="section-heading">Our Services</h2>
+                            <ul className="services-list">
+                                <li><strong>0-to-1 Visibility & Founder Branding:</strong> End-to-end content management to build your personal brand authority without you ever needing to record on camera. We treat social platforms as search engines to drive discovery natively.</li>
+                                <li><strong>AI Content Automation:</strong> Cutting-edge AI voice and video cloning, scripting, and editing. We power 500+ pieces of content per month per client distributed across 9 platforms with a "zero-friction" approach.</li>
+                                <li><strong>High-Ticket Lead Generation:</strong> Conversion-focused keyword optimization, DM automation pipelines, and Social SEO workflows to turn traffic into qualified inbound leads and scheduled discovery calls.</li>
+                            </ul>
+                        </div>
                     </div>
                 );
         }
