@@ -231,9 +231,9 @@ const App = () => {
                         </div>
 
                         <div className="card info-card">
-                            <h2 className="section-heading">About Me</h2>
+                            <h2 className="section-heading">About Us</h2>
                             <p className="section-text">
-                                Hi, I'm Suresh Malani, a 20-year-old content agency owner and the founder of Social SEO. What started with a single laptop has evolved into an AI-powered content automation machine that processes over 6,000 videos a month for 12+ premium clients. Our methodology moves beyond generic "value" and vanity metrics to build powerful, Founder-Led Personal Brands using data-driven, mathematically tested strategies (what we call Social SEO). We specialize in giving founders and business owners their distribution channel back, so they can focus entirely on what they do best without spending hours in front of a camera.
+                                Social SEO (operating under Socialseo LLP) is a premier AI-powered media firm redefining digital distribution for leading B2B founders and high-ticket brands. Operating at the intersection of programmatic media and data science, our proprietary content automation engine processes over 6,000 videos monthly—powering 500+ pieces of high-conversion content per client across 9 distinct platforms. We transform traditional personal branding into a mathematically proven growth engine. By leveraging advanced AI automation and data-driven engagement workflows, we help founders build massive, scalable distribution networks that generate consistent inbound revenue without requiring hours of on-camera recording.
                             </p>
                         </div>
 
