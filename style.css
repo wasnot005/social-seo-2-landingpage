@@ -102,8 +102,40 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.logo {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.logo:hover {
+    transform: scale(1.05);
+}
 .logo img {
     height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+.nav-link {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.3s;
+    padding: 5px 10px;
+}
+.nav-link:hover, .nav-link.active {
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        display: none; /* Hide on very small screens for now to keep the bar simple, or keep it */
+    }
 }
 
 /* Card Styles with Glowing Border */

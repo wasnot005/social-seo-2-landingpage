@@ -213,6 +213,30 @@ const App = () => {
                 return <MultiStepForm onFormSubmit={handleFormSubmit} {...formConfig} />;
             case 'result':
                 return <ResultScreen result={formData} onEditLastAnswer={handleEditLastAnswer} />;
+            case 'about':
+                return (
+                    <div className="landing-container">
+                        <div className="card info-card">
+                            <h2 className="section-heading">About Us</h2>
+                            <p className="section-text">
+                                Social SEO (operating under Socialseo LLP) is a premier AI-powered media firm redefining digital distribution for leading B2B founders and high-ticket brands. Operating at the intersection of programmatic media and data science, our proprietary content automation engine processes over 6,000 videos monthly—powering 500+ pieces of high-conversion content per client across 9 distinct platforms. We transform traditional personal branding into a mathematically proven growth engine. By leveraging advanced AI automation and data-driven engagement workflows, we help founders build massive, scalable distribution networks that generate consistent inbound revenue without requiring hours of on-camera recording.
+                            </p>
+                        </div>
+                    </div>
+                );
+            case 'services':
+                return (
+                    <div className="landing-container">
+                        <div className="card info-card">
+                            <h2 className="section-heading">Our Services</h2>
+                            <ul className="services-list">
+                                <li><strong>0-to-1 Visibility & Founder Branding:</strong> End-to-end content management to build your personal brand authority without you ever needing to record on camera. We treat social platforms as search engines to drive discovery natively.</li>
+                                <li><strong>AI Content Automation:</strong> Cutting-edge AI voice and video cloning, scripting, and editing. We power 500+ pieces of content per month per client distributed across 9 platforms with a "zero-friction" approach.</li>
+                                <li><strong>High-Ticket Lead Generation:</strong> Conversion-focused keyword optimization, DM automation pipelines, and Social SEO workflows to turn traffic into qualified inbound leads and scheduled discovery calls.</li>
+                            </ul>
+                        </div>
+                    </div>
+                );
             case 'landing':
             default:
                 return (
@@ -229,22 +253,6 @@ const App = () => {
                                 Apply Now
                             </button>
                         </div>
-
-                        <div className="card info-card">
-                            <h2 className="section-heading">About Us</h2>
-                            <p className="section-text">
-                                Social SEO (operating under Socialseo LLP) is a premier AI-powered media firm redefining digital distribution for leading B2B founders and high-ticket brands. Operating at the intersection of programmatic media and data science, our proprietary content automation engine processes over 6,000 videos monthly—powering 500+ pieces of high-conversion content per client across 9 distinct platforms. We transform traditional personal branding into a mathematically proven growth engine. By leveraging advanced AI automation and data-driven engagement workflows, we help founders build massive, scalable distribution networks that generate consistent inbound revenue without requiring hours of on-camera recording.
-                            </p>
-                        </div>
-
-                        <div className="card info-card">
-                            <h2 className="section-heading">Our Services</h2>
-                            <ul className="services-list">
-                                <li><strong>0-to-1 Visibility & Founder Branding:</strong> End-to-end content management to build your personal brand authority without you ever needing to record on camera. We treat social platforms as search engines to drive discovery natively.</li>
-                                <li><strong>AI Content Automation:</strong> Cutting-edge AI voice and video cloning, scripting, and editing. We power 500+ pieces of content per month per client distributed across 9 platforms with a "zero-friction" approach.</li>
-                                <li><strong>High-Ticket Lead Generation:</strong> Conversion-focused keyword optimization, DM automation pipelines, and Social SEO workflows to turn traffic into qualified inbound leads and scheduled discovery calls.</li>
-                            </ul>
-                        </div>
                     </div>
                 );
         }
@@ -259,8 +267,13 @@ const App = () => {
             </div>
 
             <header className="app-header">
-                <div className="logo">
+                <div className="logo" onClick={() => setAppState('landing')} style={{cursor: 'pointer'}}>
                     <img src="Logo.png" alt="Social SEO Logo" />
+                </div>
+                <div className="nav-links">
+                    <button onClick={() => setAppState('landing')} className={`nav-link ${appState === 'landing' ? 'active' : ''}`}>Home</button>
+                    <button onClick={() => setAppState('about')} className={`nav-link ${appState === 'about' ? 'active' : ''}`}>About</button>
+                    <button onClick={() => setAppState('services')} className={`nav-link ${appState === 'services' ? 'active' : ''}`}>Services</button>
                 </div>
                 <button onClick={handleApplyNow} className="cta-button header-apply-button">Apply Now</button>
             </header>
