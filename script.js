@@ -237,6 +237,21 @@ const App = () => {
                         </div>
                     </div>
                 );
+            case 'pricing':
+                return (
+                    <div className="landing-container">
+                        <div className="card info-card">
+                            <h2 className="section-heading">Custom Pricing Plans</h2>
+                            <p className="section-text">
+                                Due to the highly personalized nature of our AI content automation and the varying scale of each client's distribution network, our pricing is fully customized. 
+                                <br/><br/>
+                                We operate on custom monthly retainers based on your specific requirements—ranging from a Done-With-You (DWY) setup to comprehensive Done-For-You (DFY) end-to-end management.
+                                <br/><br/>
+                                Our dedicated team will evaluate your content volume, platform requirements, and inbound lead targets during our initial discovery call to generate a bespoke quotation and Service Level Agreement (SLA).
+                            </p>
+                        </div>
+                    </div>
+                );
             case 'landing':
             default:
                 return (
@@ -274,6 +289,7 @@ const App = () => {
                     <button onClick={() => setAppState('landing')} className={`nav-link ${appState === 'landing' ? 'active' : ''}`}>Home</button>
                     <button onClick={() => setAppState('about')} className={`nav-link ${appState === 'about' ? 'active' : ''}`}>About</button>
                     <button onClick={() => setAppState('services')} className={`nav-link ${appState === 'services' ? 'active' : ''}`}>Services</button>
+                    <button onClick={() => setAppState('pricing')} className={`nav-link ${appState === 'pricing' ? 'active' : ''}`}>Pricing</button>
                 </div>
                 <button onClick={handleApplyNow} className="cta-button header-apply-button">Apply Now</button>
             </header>
