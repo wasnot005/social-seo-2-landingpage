@@ -268,6 +268,101 @@ const App = () => {
                                 Apply Now
                             </button>
                         </div>
+
+                        {/* Stats bar */}
+                        <div className="stats-bar">
+                            <div className="stat-item"><div className="stat-num">6M+</div><div className="stat-label">Views Generated</div></div>
+                            <div className="stat-item"><div className="stat-num">6,000</div><div className="stat-label">Videos / Month</div></div>
+                            <div className="stat-item"><div className="stat-num">9</div><div className="stat-label">Platforms</div></div>
+                            <div className="stat-item"><div className="stat-num">3</div><div className="stat-label">Founder Clients</div></div>
+                        </div>
+
+                        {/* Client Results */}
+                        <div className="section-block">
+                            <h2 className="block-heading">Client Results</h2>
+                            <p className="block-sub">Real founders. Real numbers. Live links to every case study.</p>
+                            <div className="results-grid">
+                                <div className="result-card">
+                                    <div className="result-name">Kush Desai</div>
+                                    <div className="result-tag">B2B SaaS Founder · 90 days</div>
+                                    <div className="result-metric">4.29M views</div>
+                                    <div className="result-detail">0 → 10,000 followers · ₹1M B2B pipeline</div>
+                                </div>
+                                <div className="result-card">
+                                    <div className="result-name">Abhiveer</div>
+                                    <div className="result-tag">Creator · 30 days</div>
+                                    <div className="result-metric">830K views</div>
+                                    <div className="result-detail">220% follower growth in 30 days</div>
+                                </div>
+                                <div className="result-card">
+                                    <div className="result-name">Sachin Dahiya</div>
+                                    <div className="result-tag">EdTech Founder · 30 days</div>
+                                    <div className="result-metric">889K views/mo</div>
+                                    <div className="result-detail">ScaleEd MBA brand authority play</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* What We Build */}
+                        <div className="section-block">
+                            <h2 className="block-heading">What We Build</h2>
+                            <p className="block-sub">An AI content distribution platform — not an agency.</p>
+                            <div className="products-grid">
+                                <div className="product-card">
+                                    <div className="product-title">n8n Production Pipeline</div>
+                                    <div className="product-desc">Self-hosted workflow orchestration. Ingests 1 hour of long-form, produces 1,000–5,000 short-form clips. Zero human editing.</div>
+                                </div>
+                                <div className="product-card">
+                                    <div className="product-title">Claude API Hook Engine</div>
+                                    <div className="product-desc">Proprietary methodology trained on 6,000+ pieces. Level 3 hooks score 178% above industry average retention.</div>
+                                </div>
+                                <div className="product-card">
+                                    <div className="product-title">Brand Audit SaaS</div>
+                                    <div className="product-desc">Next.js + ElevenLabs + Supabase. Voice-cloned founder audit reports. Lead magnet today, paid SaaS Q3 2026.</div>
+                                </div>
+                                <div className="product-card">
+                                    <div className="product-title">LinkedIn Operator</div>
+                                    <div className="product-desc">AI ideation + variant scoring + DM outreach pipeline. Productizing into a multi-tenant SaaS.</div>
+                                </div>
+                                <div className="product-card">
+                                    <div className="product-title">Fan Page Network</div>
+                                    <div className="product-desc">20–25 pages per client across Instagram, LinkedIn, YouTube, Facebook. Tiered T1/T2/T3 distribution.</div>
+                                </div>
+                                <div className="product-card">
+                                    <div className="product-title">CRM Reply Tracker</div>
+                                    <div className="product-desc">Claude-classified inbound replies, auto-routed to Notion. Closes the loop from view to qualified call.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Team */}
+                        <div className="section-block">
+                            <h2 className="block-heading">Team</h2>
+                            <div className="team-grid">
+                                <div className="team-card">
+                                    <div className="team-name">Suresh Malani</div>
+                                    <div className="team-role">Founder · 80% · Age 20</div>
+                                    <div className="team-bio">Built the Social SEO methodology. Engineers the platform end-to-end. From Noida, UP.</div>
+                                </div>
+                                <div className="team-card">
+                                    <div className="team-name">Ashish Kumawat</div>
+                                    <div className="team-role">Co-founder · Operations · 20%</div>
+                                    <div className="team-bio">Runs client production, fan page network, and content QA across all 3 active accounts.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Entity */}
+                        <div className="entity-block">
+                            <div className="entity-row"><span>Entity</span><span>Social SEO LLP</span></div>
+                            <div className="entity-row"><span>Incorporated</span><span>Dec 31, 2025</span></div>
+                            <div className="entity-row"><span>Registered Office</span><span>Sector 132, Noida, UP — 201304</span></div>
+                            <div className="entity-row"><span>Stack</span><span>n8n · Claude API · Next.js · Supabase · ElevenLabs</span></div>
+                        </div>
+
+                        <button onClick={handleApplyNow} className="cta-button main-apply-button" style={{ marginTop: '1rem' }}>
+                            Apply Now
+                        </button>
                     </div>
                 );
         }
