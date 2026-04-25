@@ -459,12 +459,55 @@ body {
     margin: 0 0 1.8rem;
 }
 
-/* ─── Client Results ───────────────────────────────────── */
+/* ─── The System Grid ──────────────────────────────────── */
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    text-align: left;
+}
+.system-card {
+    background: rgba(10, 25, 47, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 26px;
+    transition: border-color 0.3s, transform 0.3s;
+}
+.system-card:hover {
+    border-color: rgba(66, 165, 245, 0.4);
+    transform: translateY(-4px);
+}
+.system-num {
+    font-size: 0.78rem;
+    color: #42a5f5;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+}
+.system-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.system-desc {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+@media (max-width: 800px) {
+    .system-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Track Record / Results ───────────────────────────── */
 .results-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
     text-align: left;
+}
+.results-grid.four {
+    grid-template-columns: repeat(4, 1fr);
 }
 .result-card {
     background: rgba(10, 25, 47, 0.5);
@@ -501,8 +544,17 @@ body {
     margin-top: 6px;
     line-height: 1.4;
 }
+.result-card.highlight {
+    border-color: rgba(66, 165, 245, 0.5);
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.18), rgba(10, 25, 47, 0.6));
+    box-shadow: 0 0 20px rgba(66, 165, 245, 0.15);
+}
+.result-card.highlight .result-metric { color: #82b1ff; }
+@media (max-width: 1000px) {
+    .results-grid.four { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 800px) {
-    .results-grid { grid-template-columns: 1fr; }
+    .results-grid, .results-grid.four { grid-template-columns: 1fr; }
 }
 
 /* ─── Products Grid ────────────────────────────────────── */
@@ -533,36 +585,48 @@ body {
     .products-grid { grid-template-columns: 1fr; }
 }
 
-/* ─── Team ─────────────────────────────────────────────── */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
+/* ─── Why Now ──────────────────────────────────────────── */
+.why-card {
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.25), rgba(10, 25, 47, 0.5));
+    border: 1px solid rgba(66, 165, 245, 0.2);
+    border-radius: 16px;
+    padding: 32px 36px;
     text-align: left;
 }
-.team-card {
+.why-text {
+    font-size: 1rem;
+    color: #d5d5d5;
+    line-height: 1.7;
+    margin: 0 0 1rem;
+}
+.why-text:last-child { margin-bottom: 0; }
+
+/* ─── Founder Card ─────────────────────────────────────── */
+.founder-card {
     background: rgba(10, 25, 47, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 14px;
-    padding: 24px;
+    padding: 28px;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
 }
-.team-name {
-    font-size: 1.2rem;
+.founder-name {
+    font-size: 1.4rem;
     font-weight: 700;
     color: #fff;
 }
-.team-role {
-    font-size: 0.85rem;
+.founder-role {
+    font-size: 0.9rem;
     color: #82b1ff;
-    margin: 4px 0 10px;
+    margin: 6px 0 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
-.team-bio {
-    font-size: 0.92rem;
+.founder-bio {
+    font-size: 0.98rem;
     color: #ccc;
-    line-height: 1.5;
-}
-@media (max-width: 600px) {
-    .team-grid { grid-template-columns: 1fr; }
+    line-height: 1.65;
 }
 
 /* ─── Entity Block ─────────────────────────────────────── */

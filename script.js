@@ -271,17 +271,51 @@ const App = () => {
 
                         {/* Stats bar */}
                         <div className="stats-bar">
-                            <div className="stat-item"><div className="stat-num">6M+</div><div className="stat-label">Views Generated</div></div>
+                            <div className="stat-item"><div className="stat-num">32M+</div><div className="stat-label">Views (Single Campaign)</div></div>
                             <div className="stat-item"><div className="stat-num">6,000</div><div className="stat-label">Videos / Month</div></div>
+                            <div className="stat-item"><div className="stat-num">30+</div><div className="stat-label">Pages / Founder</div></div>
                             <div className="stat-item"><div className="stat-num">9</div><div className="stat-label">Platforms</div></div>
-                            <div className="stat-item"><div className="stat-num">3</div><div className="stat-label">Founder Clients</div></div>
                         </div>
 
-                        {/* Client Results */}
+                        {/* The System — what we actually do */}
                         <div className="section-block">
-                            <h2 className="block-heading">Client Results</h2>
-                            <p className="block-sub">Real founders. Real numbers. Live links to every case study.</p>
-                            <div className="results-grid">
+                            <h2 className="block-heading">One Creator. Thirty Pages. One System.</h2>
+                            <p className="block-sub">Fan Page Marketing + Social SEO + AI Avatar IPs — the three layers of the engine. One creator's input becomes thirty distribution surfaces.</p>
+                            <div className="system-grid">
+                                <div className="system-card">
+                                    <div className="system-num">01</div>
+                                    <div className="system-title">Fan Page Network</div>
+                                    <div className="system-desc">20–30 distribution pages per founder, tiered T1/T2/T3 across Instagram, LinkedIn, YouTube, Facebook. Five years ago theme pages cracked this with repurposed content. We've cracked the next inflection — same model, but with AI avatars and structural IPs built from one creator's input. The delta is 10–12% more work for 30× the surface area.</div>
+                                </div>
+                                <div className="system-card">
+                                    <div className="system-num">02</div>
+                                    <div className="system-title">Social SEO Methodology</div>
+                                    <div className="system-desc">Treat social platforms as search engines, not engagement tools. Keyword-rich hooks + searchable captions + structural IPs make founders discoverable when prospects look for their category. Trained on 6,000+ pieces. Level 3 hooks measure 178% above industry-average retention.</div>
+                                </div>
+                                <div className="system-card">
+                                    <div className="system-num">03</div>
+                                    <div className="system-title">AI Avatar IPs</div>
+                                    <div className="system-desc">Voice cloning, scripted avatars, and recurring on-screen characters built from a single founder's input. Multiplies face-time without multiplying recording hours. Zero-friction for the founder — no daily filming required.</div>
+                                </div>
+                                <div className="system-card">
+                                    <div className="system-num">04</div>
+                                    <div className="system-title">AI Production Pipeline</div>
+                                    <div className="system-desc">Self-hosted n8n orchestration + Claude API. Ingests one hour of long-form (podcast, demo, webinar) → produces 1,000–5,000 short-form clips. Zero human editing. AI tracks which clips perform and doubles down on winning formats.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Track Record */}
+                        <div className="section-block">
+                            <h2 className="block-heading">Track Record</h2>
+                            <p className="block-sub">Brand campaigns and founder retainers. Real numbers, all verifiable.</p>
+                            <div className="results-grid four">
+                                <div className="result-card highlight">
+                                    <div className="result-name">TVS Apache Campaign</div>
+                                    <div className="result-tag">Brand · 60 days</div>
+                                    <div className="result-metric">32M views</div>
+                                    <div className="result-detail">250 posts · 5 distribution pages · AI-augmented inference team</div>
+                                </div>
                                 <div className="result-card">
                                     <div className="result-name">Kush Desai</div>
                                     <div className="result-tag">B2B SaaS Founder · 90 days</div>
@@ -303,30 +337,30 @@ const App = () => {
                             </div>
                         </div>
 
-                        {/* What We Build */}
+                        {/* What's running underneath */}
                         <div className="section-block">
-                            <h2 className="block-heading">What We Build</h2>
-                            <p className="block-sub">An AI content distribution platform — not an agency.</p>
+                            <h2 className="block-heading">What's Running Underneath</h2>
+                            <p className="block-sub">Six tools we built ourselves to run this. Not bought, not stitched. Owned.</p>
                             <div className="products-grid">
                                 <div className="product-card">
-                                    <div className="product-title">n8n Production Pipeline</div>
-                                    <div className="product-desc">Self-hosted workflow orchestration. Ingests 1 hour of long-form, produces 1,000–5,000 short-form clips. Zero human editing.</div>
+                                    <div className="product-title">n8n Orchestration</div>
+                                    <div className="product-desc">Self-hosted workflow engine running every clip-extraction, captioning, and distribution job. Processes 6,000 videos/month.</div>
                                 </div>
                                 <div className="product-card">
                                     <div className="product-title">Claude API Hook Engine</div>
-                                    <div className="product-desc">Proprietary methodology trained on 6,000+ pieces. Level 3 hooks score 178% above industry average retention.</div>
+                                    <div className="product-desc">Proprietary scoring built on 6,000+ pieces of labelled retention data. Predicts which hooks will hit before publish.</div>
                                 </div>
                                 <div className="product-card">
                                     <div className="product-title">Brand Audit SaaS</div>
-                                    <div className="product-desc">Next.js + ElevenLabs + Supabase. Voice-cloned founder audit reports. Lead magnet today, paid SaaS Q3 2026.</div>
+                                    <div className="product-desc">Next.js + ElevenLabs + Supabase. Voice-cloned audit reports. Lead magnet today, paid multi-tenant SaaS Q3 2026.</div>
                                 </div>
                                 <div className="product-card">
                                     <div className="product-title">LinkedIn Operator</div>
-                                    <div className="product-desc">AI ideation + variant scoring + DM outreach pipeline. Productizing into a multi-tenant SaaS.</div>
+                                    <div className="product-desc">AI ideation + variant scoring + DM outreach pipeline. Productizing into a self-serve B2B SaaS.</div>
                                 </div>
                                 <div className="product-card">
-                                    <div className="product-title">Fan Page Network</div>
-                                    <div className="product-desc">20–25 pages per client across Instagram, LinkedIn, YouTube, Facebook. Tiered T1/T2/T3 distribution.</div>
+                                    <div className="product-title">Fan Page Ops Console</div>
+                                    <div className="product-desc">Scheduling, page-tier orchestration, and performance dashboards across the 20–30 pages per founder.</div>
                                 </div>
                                 <div className="product-card">
                                     <div className="product-title">CRM Reply Tracker</div>
@@ -335,19 +369,27 @@ const App = () => {
                             </div>
                         </div>
 
-                        {/* Team */}
+                        {/* Why Now */}
                         <div className="section-block">
-                            <h2 className="block-heading">Team</h2>
-                            <div className="team-grid">
-                                <div className="team-card">
-                                    <div className="team-name">Suresh Malani</div>
-                                    <div className="team-role">Founder · 80% · Age 20</div>
-                                    <div className="team-bio">Built the Social SEO methodology. Engineers the platform end-to-end. From Noida, UP.</div>
-                                </div>
-                                <div className="team-card">
-                                    <div className="team-name">Ashish Kumawat</div>
-                                    <div className="team-role">Co-founder · Operations · 20%</div>
-                                    <div className="team-bio">Runs client production, fan page network, and content QA across all 3 active accounts.</div>
+                            <div className="why-card">
+                                <h2 className="block-heading" style={{textAlign:'left',marginBottom:'1rem'}}>Why Now</h2>
+                                <p className="why-text">
+                                    Five years ago theme pages cracked the repurposed-content game. That wave made a lot of operators a lot of money — then it commoditised. We've cracked the next inflection: the same fan-page model, but powered by AI avatars and structural IPs that turn one founder into thirty pages without thirty times the input.
+                                </p>
+                                <p className="why-text">
+                                    Nobody in India is running this stack right now. The system is built. The early signals are in. The only thing we trade against is speed — which is exactly what scale capital solves.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Founder */}
+                        <div className="section-block">
+                            <h2 className="block-heading">Founder</h2>
+                            <div className="founder-card">
+                                <div className="founder-name">Suresh Malani</div>
+                                <div className="founder-role">Founder · Built the system end-to-end · From Noida, UP</div>
+                                <div className="founder-bio">
+                                    Wrote the Social SEO methodology. Engineered the n8n + Claude pipeline. Ran the 32M-view brand campaign. Built the Brand Audit SaaS, LinkedIn Operator, and CRM Reply Tracker — all from scratch. Currently 20 years old, currently bootstrapped, currently in market with three paying founder clients and an inbound pipeline.
                                 </div>
                             </div>
                         </div>
