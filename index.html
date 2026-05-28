@@ -39,24 +39,20 @@
       gtag('config', 'G-4QRRG2GFLS');
     </script>
 
+    <!-- Fire the Lead conversion when someone clicks Apply Now -->
+    <script>
+      function trackApplyNow() {
+        if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+        if (typeof gtag === 'function') {
+          gtag('event', 'click', { event_category: 'Button', event_label: 'Apply Now' });
+        }
+        return true; // allow the link to navigate to Calendly
+      }
+    </script>
+
     <!-- Inline critical styles to prevent FOUC -->
     <style>
       body { margin: 0; background-color: #010414; }
-      #loading-screen {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: #010414; display: flex; justify-content: center;
-        align-items: center; z-index: 9999;
-        transition: opacity 0.4s ease;
-      }
-      #loading-screen.fade-out { opacity: 0; pointer-events: none; }
-      .spinner {
-        width: 40px; height: 40px;
-        border: 3px solid rgba(66,165,245,0.2);
-        border-top-color: #42a5f5;
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-      }
-      @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 
     <!-- Google Fonts -->
@@ -65,23 +61,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
-    <!-- Loading screen shown instantly while scripts load -->
-    <div id="loading-screen"><div class="spinner"></div></div>
+    <div id="root">
+        <!-- Animated background -->
+        <div class="background-container">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+        </div>
 
-    <div id="root"></div>
+        <!-- Header -->
+        <header class="app-header">
+            <a class="logo" href="/" style="text-decoration: none;">
+                <img src="Logo.png" alt="Social SEO Logo">
+            </a>
+            <a class="cta-button header-apply-button"
+               style="display: inline-block; text-decoration: none;"
+               href="https://calendly.com/suresh-socialseo/socialseo-instant-report"
+               onclick="return trackApplyNow();">Apply Now</a>
+        </header>
 
-    <!-- Supabase Client Library -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <!-- React Libraries (production builds for faster load) -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <!-- App script (cache-busted) -->
-    <script type="text/babel" src="script.js?v=4"></script>
+        <!-- Landing -->
+        <div class="landing-container">
+            <div class="top-heading-group">
+                <h1 class="main-heading gradient-text">Social SEO</h1>
+                <p class="sub-heading">A mathematically proven way to get consistent virality.</p>
+            </div>
+            <div class="card">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6hMCr1-X1g0?si=3XV0M2lhl-j2zXs2&rel=0&showinfo=0&modestbranding=1&loop=1&playlist=6hMCr1-X1g0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <a class="cta-button main-apply-button"
+                   style="margin-top: 2.5rem; display: inline-block; text-decoration: none;"
+                   href="https://calendly.com/suresh-socialseo/socialseo-instant-report"
+                   onclick="return trackApplyNow();">Apply Now</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
