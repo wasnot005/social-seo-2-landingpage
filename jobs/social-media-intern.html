@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Social Media Intern — SocialSEO LLP</title>
+<meta name="description" content="3-month internship. Editing, captions, scheduling, DM triage. Permanent role at 3 months if you hit the bar. Apply via the Google Form on this page." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #010414; color: white; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  .background-container { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #010414; }
+  .shape { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.5; }
+  .shape1 { width: 450px; height: 450px; background: rgba(25,118,210,0.3); top: -150px; left: -150px; animation: moveShape1 25s infinite alternate ease-in-out; }
+  .shape2 { width: 500px; height: 500px; background: rgba(66,165,245,0.25); bottom: -200px; right: -200px; animation: moveShape2 30s infinite alternate ease-in-out; }
+  @keyframes moveShape1 { from { transform: translate(0,0) scale(1); } to { transform: translate(200px,100px) scale(1.2); } }
+  @keyframes moveShape2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-200px,-150px) scale(0.8); } }
+  body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px; pointer-events: none; z-index: 0; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(1,4,20,0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; letter-spacing: 0.5px; }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: #42A5F5; box-shadow: 0 0 12px #42A5F5; }
+  .back-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .back-link:hover { color: #42A5F5; }
+
+  main { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 140px 32px 80px; }
+
+  .breadcrumb { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: rgba(66,165,245,0.08); border: 1px solid rgba(66,165,245,0.2); border-radius: 100px; color: #60A5FA; font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 40px; transition: all 0.2s ease; }
+  .breadcrumb:hover { background: rgba(66,165,245,0.15); border-color: rgba(66,165,245,0.4); }
+
+  .hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 16px; }
+  .hero h1 .gradient { background: linear-gradient(135deg, #ffffff 0%, #60A5FA 50%, #1976D2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .tagline { font-size: clamp(18px, 2.4vw, 26px); color: rgba(255,255,255,0.7); font-weight: 500; margin-bottom: 28px; line-height: 1.4; }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 64px; }
+  .meta-pill { padding: 7px 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500; }
+
+  section.block { margin-bottom: 64px; }
+  section.block h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid rgba(66,165,245,0.2); display: inline-block; }
+  section.block p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 16px; }
+  section.block ul { list-style: none; }
+  section.block ul li { font-size: 16px; color: rgba(255,255,255,0.8); padding: 10px 0 10px 28px; position: relative; line-height: 1.55; }
+  section.block ul li::before { content: '→'; position: absolute; left: 0; color: #42A5F5; font-weight: 700; top: 10px; }
+  section.block strong { color: white; font-weight: 700; }
+
+  .perks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .perk { padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; backdrop-filter: blur(8px); }
+  .perk-num { font-size: 12px; font-weight: 700; color: #60A5FA; letter-spacing: 2px; margin-bottom: 12px; }
+  .perk-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .perk-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+  .apply-section { text-align: center; padding: 56px 32px; background: linear-gradient(135deg, rgba(25,118,210,0.15) 0%, rgba(66,165,245,0.08) 100%); border: 1px solid rgba(66,165,245,0.3); border-radius: 24px; margin-top: 32px; }
+  .apply-section h2 { display: inline-block; border: none; padding-bottom: 0; margin-bottom: 16px; }
+  .apply-section p { color: rgba(255,255,255,0.7); margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .apply-btn-large { display: inline-block; padding: 16px 36px; background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; letter-spacing: 0.3px; transition: all 0.2s ease; box-shadow: 0 8px 24px rgba(66,165,245,0.3); }
+  .apply-btn-large:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(66,165,245,0.45); }
+  .apply-note { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 16px; }
+
+  footer { text-align: center; padding: 32px; font-size: 13px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.05); }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  footer a:hover { color: #42A5F5; }
+
+  @media (max-width: 768px) {
+    header { padding: 20px 24px; }
+    main { padding: 120px 20px 60px; }
+    .apply-section { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="background-container">
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+</div>
+
+<header>
+  <div class="logo">
+    <span class="logo-dot"></span>
+    <span>SocialSEO LLP</span>
+  </div>
+  <a href="/careers.html" class="back-link">← All open roles</a>
+</header>
+
+<main>
+
+  <a href="/careers.html" class="breadcrumb">← Back to all roles</a>
+
+  <section class="hero">
+    <h1><span class="gradient">Social Media Intern</span></h1>
+    <p class="tagline">You hustle. You learn. You convert.</p>
+    <div class="meta-pills">
+      <span class="meta-pill">Noida (Sector 119, in-office)</span>
+      <span class="meta-pill">3 months → permanent</span>
+      <span class="meta-pill">9 AM - 6 PM</span>
+      <span class="meta-pill">Current students welcome</span>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>About the role</h2>
+    <p>We run content for some of India's biggest creators and brands. Raj Shamani, Badshah, BJP, and more. 450M+ views in the last 6 months. 100M+ views every month right now.</p>
+    <p>The Social Media Intern is the cross-functional support seat. You spend roughly 40% editing, 30% writing captions and ideas, and 30% on social media management — posting, scheduling, DM triage.</p>
+    <p>This is a 3-month internship with stipend. If you hit the bar at the 3-month mark, you convert to a permanent role on the team.</p>
+    <p><strong>Title path:</strong> Social Media Intern → Social Media Executive → Content Associate.</p>
+  </section>
+
+  <section class="block">
+    <h2>What you will own</h2>
+    <ul>
+      <li><strong>Basic reel editing</strong> from team-shot raw footage. 2-3 publishable reels per day from raw to finished.</li>
+      <li><strong>Story templates</strong> for Instagram, designed and scheduled across all client + agency pages.</li>
+      <li><strong>Caption + hashtag + CTA writing</strong> for upcoming posts, in the founder voice doc.</li>
+      <li><strong>Posting + scheduling</strong> across Instagram, YouTube Shorts, Facebook (Buffer / Later / Meta Suite).</li>
+      <li><strong>DM triage + comment engagement.</strong> Sort inbound into categories. Respond to engagement comments within 4 hours.</li>
+      <li><strong>Idea support.</strong> Bring 3-5 fresh hook ideas or trending audio finds to the daily sync.</li>
+      <li><strong>Asset organization</strong> across Drive and Notion.</li>
+      <li><strong>Weekly performance tracking.</strong> Pull stats into a simple Notion dashboard every Friday.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Who we are looking for</h2>
+    <ul>
+      <li><strong>Basic video editing fluency</strong> in any tool (CapCut, Premiere, DaVinci, Canva for Video).</li>
+      <li><strong>Content native.</strong> You watch reels for fun, not just for work. You know what's trending right now.</li>
+      <li><strong>Hustle.</strong> When today's list is done you find the next thing without being asked.</li>
+      <li><strong>Coachable.</strong> Feedback lands, defensiveness does not.</li>
+      <li><strong>Internet fluent.</strong> Memes, formats, current creators — you can name them.</li>
+      <li><strong>Hungry for the permanent role.</strong> An intern who treats this as a stepping stone grows into the seat.</li>
+    </ul>
+    <p style="margin-top: 20px;">Current students or recent grads are welcome. Any field of study is fine.</p>
+  </section>
+
+  <section class="block">
+    <h2>This role is not for you if</h2>
+    <ul>
+      <li>You wait for instructions when there is no clear task.</li>
+      <li>You do not actually use Instagram or cannot name a current trend.</li>
+      <li>You are only here for the stipend, not the permanent-role pathway.</li>
+      <li>You prefer "structured environments" over a fast-moving small team.</li>
+      <li>You get defensive when feedback is harsh.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Why join SocialSEO</h2>
+    <div class="perks-grid">
+      <div class="perk">
+        <div class="perk-num">01</div>
+        <div class="perk-title">AI masterclass on the job</div>
+        <p class="perk-desc">Work with the tools and pipeline that ship 100M+ views a month. Best content education an intern can get.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">02</div>
+        <div class="perk-title">Founding-team seat</div>
+        <p class="perk-desc">Small team, no corporate process. Direct line to the founder. Convert to permanent at 3 months and you grow as the agency scales.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">03</div>
+        <div class="perk-title">Work everyone watches</div>
+        <p class="perk-desc">Raj Shamani. Badshah. BJP. The kind of internship resume line that does not show up at most agencies.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">04</div>
+        <div class="perk-title">Build your own brand</div>
+        <p class="perk-desc">Post-conversion, we fund and build your personal creator page to 10K followers in 3 months. You earn direct revenue share on sponsorships and brand deals on your page. The page stays yours.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">05</div>
+        <div class="perk-title">Permanent role pathway</div>
+        <p class="perk-desc">Hit the bar at 3 months and you convert to Social Media Executive. Performance bonuses kick in after conversion.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply-section">
+    <h2>Apply</h2>
+    <p>The application form takes 5-7 minutes. We read every submission. If your work fits, we reach out within 5 working days.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScWjk5o_p9fa3HLIAj5E2DLwbkVAQpHWkvSMkpNOK5GUPm3nQ/viewform" class="apply-btn-large" target="_blank">Apply for Social Media Intern →</a>
+    <p class="apply-note">Bring a link to one reel you edited OR a page you actively manage.</p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 SocialSEO LLP · <a href="/careers.html">All open roles</a>
+</footer>
+
+</body>
+</html>

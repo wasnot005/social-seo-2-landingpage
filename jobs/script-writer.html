@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Script Writer — SocialSEO LLP</title>
+<meta name="description" content="Write the first 3 seconds. 4-6 viral scripts a day. AI-assisted workflow, voice-matched across 5+ founder clients. Apply via the Google Form on this page." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #010414; color: white; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  .background-container { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #010414; }
+  .shape { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.5; }
+  .shape1 { width: 450px; height: 450px; background: rgba(25,118,210,0.3); top: -150px; left: -150px; animation: moveShape1 25s infinite alternate ease-in-out; }
+  .shape2 { width: 500px; height: 500px; background: rgba(66,165,245,0.25); bottom: -200px; right: -200px; animation: moveShape2 30s infinite alternate ease-in-out; }
+  @keyframes moveShape1 { from { transform: translate(0,0) scale(1); } to { transform: translate(200px,100px) scale(1.2); } }
+  @keyframes moveShape2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-200px,-150px) scale(0.8); } }
+  body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px; pointer-events: none; z-index: 0; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(1,4,20,0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; letter-spacing: 0.5px; }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: #42A5F5; box-shadow: 0 0 12px #42A5F5; }
+  .back-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .back-link:hover { color: #42A5F5; }
+
+  main { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 140px 32px 80px; }
+
+  .breadcrumb { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: rgba(66,165,245,0.08); border: 1px solid rgba(66,165,245,0.2); border-radius: 100px; color: #60A5FA; font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 40px; transition: all 0.2s ease; }
+  .breadcrumb:hover { background: rgba(66,165,245,0.15); border-color: rgba(66,165,245,0.4); }
+
+  .hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 16px; }
+  .hero h1 .gradient { background: linear-gradient(135deg, #ffffff 0%, #60A5FA 50%, #1976D2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .tagline { font-size: clamp(18px, 2.4vw, 26px); color: rgba(255,255,255,0.7); font-weight: 500; margin-bottom: 28px; line-height: 1.4; }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 64px; }
+  .meta-pill { padding: 7px 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500; }
+
+  section.block { margin-bottom: 64px; }
+  section.block h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid rgba(66,165,245,0.2); display: inline-block; }
+  section.block p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 16px; }
+  section.block ul { list-style: none; }
+  section.block ul li { font-size: 16px; color: rgba(255,255,255,0.8); padding: 10px 0 10px 28px; position: relative; line-height: 1.55; }
+  section.block ul li::before { content: '→'; position: absolute; left: 0; color: #42A5F5; font-weight: 700; top: 10px; }
+  section.block strong { color: white; font-weight: 700; }
+
+  .perks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .perk { padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; backdrop-filter: blur(8px); }
+  .perk-num { font-size: 12px; font-weight: 700; color: #60A5FA; letter-spacing: 2px; margin-bottom: 12px; }
+  .perk-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .perk-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+  .apply-section { text-align: center; padding: 56px 32px; background: linear-gradient(135deg, rgba(25,118,210,0.15) 0%, rgba(66,165,245,0.08) 100%); border: 1px solid rgba(66,165,245,0.3); border-radius: 24px; margin-top: 32px; }
+  .apply-section h2 { display: inline-block; border: none; padding-bottom: 0; margin-bottom: 16px; }
+  .apply-section p { color: rgba(255,255,255,0.7); margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .apply-btn-large { display: inline-block; padding: 16px 36px; background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; letter-spacing: 0.3px; transition: all 0.2s ease; box-shadow: 0 8px 24px rgba(66,165,245,0.3); }
+  .apply-btn-large:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(66,165,245,0.45); }
+  .apply-note { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 16px; }
+
+  footer { text-align: center; padding: 32px; font-size: 13px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.05); }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  footer a:hover { color: #42A5F5; }
+
+  @media (max-width: 768px) {
+    header { padding: 20px 24px; }
+    main { padding: 120px 20px 60px; }
+    .apply-section { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="background-container">
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+</div>
+
+<header>
+  <div class="logo">
+    <span class="logo-dot"></span>
+    <span>SocialSEO LLP</span>
+  </div>
+  <a href="/careers.html" class="back-link">← All open roles</a>
+</header>
+
+<main>
+
+  <a href="/careers.html" class="breadcrumb">← Back to all roles</a>
+
+  <section class="hero">
+    <h1><span class="gradient">Script Writer</span></h1>
+    <p class="tagline">You write the first 3 seconds.</p>
+    <div class="meta-pills">
+      <span class="meta-pill">Noida (Sector 119, in-office)</span>
+      <span class="meta-pill">1-2 years experience</span>
+      <span class="meta-pill">9 AM - 5 PM</span>
+      <span class="meta-pill">Full-time</span>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>About the role</h2>
+    <p>SocialSEO LLP is India's fastest AI-native marketing agency. We don't do traditional marketing. We build AI-powered content engines that produce 500+ pieces a month per client across 9 platforms, without the client ever recording a single video.</p>
+    <p>We've generated 450M+ views in the last 6 months and currently drive 100M+ views every single month. We work with names like Raj Shamani, Badshah, and BJP. Our tech stack runs on AI, automation, and systems that most agencies will not build for another 3 years.</p>
+    <p>This is NOT a "write blogs and captions" job. You will be writing content that's designed to go viral.</p>
+    <p><strong>Title path:</strong> Script Writer → Senior Writer → Content Lead / Content Manager.</p>
+  </section>
+
+  <section class="block">
+    <h2>What you will own</h2>
+    <ul>
+      <li><strong>Write 4-6 Reel / Short scripts daily</strong> using AI-assisted workflows. AI does the heavy lifting, you make it human and fire.</li>
+      <li><strong>Write scroll-stopping hooks.</strong> You understand wide hooks, relatability hooks, and opposite-opinion hooks.</li>
+      <li><strong>Write visual cues for editors.</strong> The first 3 seconds of every video start with your instructions.</li>
+      <li><strong>Take 1-minute podcast clips and turn them into viral short-form content.</strong> Define cuts, segments, hooks, formatting.</li>
+      <li><strong>Study each client's voice and personality.</strong> You write as if you ARE them.</li>
+      <li><strong>Participate in daily content strategy syncs</strong> with the founder. Bring ideas, not just output.</li>
+      <li><strong>Polish carousel copy</strong> when needed. AI does the heavy lifting here too. Your job is to sharpen the final 10%.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Who we are looking for</h2>
+    <ul>
+      <li><strong>1-2 years</strong> of experience in short-form content scripting (Reels, Shorts, TikTok).</li>
+      <li><strong>You have gotten content viral before.</strong> Show us proof.</li>
+      <li><strong>You understand hook psychology.</strong> Not just "catchy openers" but WHY hooks work.</li>
+      <li><strong>You can write fast AND good.</strong> 4-6 polished scripts in 2 hours is normal for you.</li>
+      <li><strong>You can match different founder voices</strong> without blending them together.</li>
+      <li><strong>You use AI tools as a starting point,</strong> not as your final output.</li>
+      <li><strong>You are self-driven.</strong> You do not wait to be told what to do.</li>
+      <li><strong>You care about results.</strong> "How did my script perform?" is a question you naturally ask.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>This role is not for you if</h2>
+    <ul>
+      <li>You wait for instructions when there is no clear task.</li>
+      <li>You take 2 hours per script and call it craft.</li>
+      <li>You blame the algorithm, editor, or client when a script flops.</li>
+      <li>You see AI as a threat instead of a tool.</li>
+      <li>You do not watch reels for fun and cannot name 3 creators whose hooks you study.</li>
+      <li>You get defensive when feedback is harsh.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Why join SocialSEO</h2>
+    <div class="perks-grid">
+      <div class="perk">
+        <div class="perk-num">01</div>
+        <div class="perk-title">AI masterclass on the job</div>
+        <p class="perk-desc">Tools and workflows that 99% of content writers do not know exist. AI scripting, content automation, PR. This is a masterclass, not just a job.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">02</div>
+        <div class="perk-title">Founding-team seat</div>
+        <p class="perk-desc">You are not joining a 50-person company. You are joining the founding team. As we grow, you grow into Content Lead / Content Manager.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">03</div>
+        <div class="perk-title">Work everyone watches</div>
+        <p class="perk-desc">Our client roster includes names most agencies dream about. Your scripts will be seen by millions.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">04</div>
+        <div class="perk-title">Build your own brand</div>
+        <p class="perk-desc">We fund and build your personal creator page. 10K followers in 3 months. You earn direct revenue share on sponsorships and brand deals on your page. The page is yours forever. (Starts after 1-month probation.)</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">05</div>
+        <div class="perk-title">Performance bonus</div>
+        <p class="perk-desc">Your scripts go viral, you earn more. Bonuses tied directly to content performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply-section">
+    <h2>Apply</h2>
+    <p>The application form takes 6-10 minutes. We read every submission. If your work fits, we reach out within 5 working days.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6WQrq9NIJluotNP6ZamdN6lpcmNCqP7ysXkqhLiS5Gkt9Tg/viewform" class="apply-btn-large" target="_blank">Apply for Script Writer →</a>
+    <p class="apply-note">Bring 5 Instagram URLs of your top performing scripts and 1 full script you wrote.</p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 SocialSEO LLP · <a href="/careers.html">All open roles</a>
+</footer>
+
+</body>
+</html>

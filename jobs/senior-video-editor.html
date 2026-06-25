@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Senior Video Editor — SocialSEO LLP</title>
+<meta name="description" content="Set the bar. Lead 2 editors. Edit for India's biggest creators. Apply via the Google Form on this page." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #010414; color: white; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  .background-container { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #010414; }
+  .shape { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.5; }
+  .shape1 { width: 450px; height: 450px; background: rgba(25,118,210,0.3); top: -150px; left: -150px; animation: moveShape1 25s infinite alternate ease-in-out; }
+  .shape2 { width: 500px; height: 500px; background: rgba(66,165,245,0.25); bottom: -200px; right: -200px; animation: moveShape2 30s infinite alternate ease-in-out; }
+  @keyframes moveShape1 { from { transform: translate(0,0) scale(1); } to { transform: translate(200px,100px) scale(1.2); } }
+  @keyframes moveShape2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-200px,-150px) scale(0.8); } }
+  body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px; pointer-events: none; z-index: 0; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(1,4,20,0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; letter-spacing: 0.5px; }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: #42A5F5; box-shadow: 0 0 12px #42A5F5; }
+  .back-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .back-link:hover { color: #42A5F5; }
+
+  main { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 140px 32px 80px; }
+
+  .breadcrumb { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: rgba(66,165,245,0.08); border: 1px solid rgba(66,165,245,0.2); border-radius: 100px; color: #60A5FA; font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 40px; transition: all 0.2s ease; }
+  .breadcrumb:hover { background: rgba(66,165,245,0.15); border-color: rgba(66,165,245,0.4); }
+
+  .hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 16px; }
+  .hero h1 .gradient { background: linear-gradient(135deg, #ffffff 0%, #60A5FA 50%, #1976D2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .tagline { font-size: clamp(18px, 2.4vw, 26px); color: rgba(255,255,255,0.7); font-weight: 500; margin-bottom: 28px; line-height: 1.4; }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 64px; }
+  .meta-pill { padding: 7px 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500; }
+
+  section.block { margin-bottom: 64px; }
+  section.block h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid rgba(66,165,245,0.2); display: inline-block; }
+  section.block p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 16px; }
+  section.block ul { list-style: none; }
+  section.block ul li { font-size: 16px; color: rgba(255,255,255,0.8); padding: 10px 0 10px 28px; position: relative; line-height: 1.55; }
+  section.block ul li::before { content: '→'; position: absolute; left: 0; color: #42A5F5; font-weight: 700; top: 10px; }
+  section.block strong { color: white; font-weight: 700; }
+
+  .perks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .perk { padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; backdrop-filter: blur(8px); }
+  .perk-num { font-size: 12px; font-weight: 700; color: #60A5FA; letter-spacing: 2px; margin-bottom: 12px; }
+  .perk-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .perk-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+  .apply-section { text-align: center; padding: 56px 32px; background: linear-gradient(135deg, rgba(25,118,210,0.15) 0%, rgba(66,165,245,0.08) 100%); border: 1px solid rgba(66,165,245,0.3); border-radius: 24px; margin-top: 32px; }
+  .apply-section h2 { display: inline-block; border: none; padding-bottom: 0; margin-bottom: 16px; }
+  .apply-section p { color: rgba(255,255,255,0.7); margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .apply-btn-large { display: inline-block; padding: 16px 36px; background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; letter-spacing: 0.3px; transition: all 0.2s ease; box-shadow: 0 8px 24px rgba(66,165,245,0.3); }
+  .apply-btn-large:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(66,165,245,0.45); }
+  .apply-note { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 16px; }
+
+  footer { text-align: center; padding: 32px; font-size: 13px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.05); }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  footer a:hover { color: #42A5F5; }
+
+  @media (max-width: 768px) {
+    header { padding: 20px 24px; }
+    main { padding: 120px 20px 60px; }
+    .apply-section { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="background-container">
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+</div>
+
+<header>
+  <div class="logo">
+    <span class="logo-dot"></span>
+    <span>SocialSEO LLP</span>
+  </div>
+  <a href="/careers.html" class="back-link">← All open roles</a>
+</header>
+
+<main>
+
+  <a href="/careers.html" class="breadcrumb">← Back to all roles</a>
+
+  <section class="hero">
+    <h1><span class="gradient">Senior Video Editor</span></h1>
+    <p class="tagline">You set the bar. The team follows.</p>
+    <div class="meta-pills">
+      <span class="meta-pill">Noida (Sector 119, in-office)</span>
+      <span class="meta-pill">2-3 years experience</span>
+      <span class="meta-pill">Manages 2 editors</span>
+      <span class="meta-pill">Full-time</span>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>About the role</h2>
+    <p>We run content for some of India's biggest creators and brands. In the last 6 months our work has crossed 450M+ views. We do 100M+ monthly views right now. Roster includes Raj Shamani, Badshah, BJP, and others.</p>
+    <p>The Senior Video Editor sits at the timeline 80% of the day and manages 2 editors (Anas + Himanshu) for the other 20%. You will not do client communication. That stays with us. You stay heads-down on the craft and the team.</p>
+    <p><strong>Title path:</strong> Senior Video Editor → Editing Lead at 6 months → Creative Director track beyond.</p>
+  </section>
+
+  <section class="block">
+    <h2>What you will own</h2>
+    <ul>
+      <li><strong>2-3 personally-shipped video edits every day.</strong> The hardest content gets you. AI-clone-mixed reels, premium client work, complex cuts.</li>
+      <li><strong>QC pass on every Anas + Himanshu reel before it ships.</strong> Final 10% sharpened, not signed off at 70%.</li>
+      <li><strong>Direction on raw clips</strong> with 2-3 lines of feedback per piece. Hook, pacing, B-roll, transitions.</li>
+      <li><strong>Daily morning sync</strong> to review yesterday's output, set today's direction, surface pending tasks.</li>
+      <li><strong>Weekly team check-in</strong> for what shipped, what flopped, what's next.</li>
+      <li><strong>Skill teach sessions</strong> with Anas or Himanshu, one focused upskill block per week.</li>
+      <li><strong>Notion updates EOD</strong> for your work, team statuses, and blockers.</li>
+    </ul>
+    <p style="margin-top: 20px;">Our proprietary AI-clone workflow, HeyGen, ElevenLabs and the AI tool stack are trainable on the job. We do not require you to come in AI-fluent. We require you to come in editing-fluent and design-eye sharp.</p>
+  </section>
+
+  <section class="block">
+    <h2>Who we are looking for</h2>
+    <ul>
+      <li><strong>2-3 years</strong> hands-on editing work. Reels, podcasts, ads, or any short-form pipeline. Hands-on, not just "led a team that did it".</li>
+      <li><strong>Prior team-management experience.</strong> At least one role where you managed 1-2 editors before.</li>
+      <li><strong>Senior editor at an agency</strong> is the preferred background. Brand-side or scaled-creator-side also fine if you can show the chops.</li>
+      <li><strong>A specific portfolio.</strong> Actual reels, links, view counts. The 5-second test we will run live on your work matters more than the resume line.</li>
+      <li><strong>Design eye is non-negotiable.</strong> You can articulate why one reel reads premium and another reads cheap.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>This role is not for you if</h2>
+    <ul>
+      <li>You have a corporate mindset and treat work as a task to clock through rather than a craft to elevate.</li>
+      <li>You are not team-oriented. You see Anas and Himanshu as your subordinates, not as people you are responsible for growing.</li>
+      <li>You do not actually know Premiere or DaVinci. We will not train you on the software.</li>
+      <li>You have no design knowledge. You cannot tell premium from cheap.</li>
+      <li>You defend your edits when they get a note. Coachability is non-negotiable.</li>
+      <li>You sugarcoat status updates.</li>
+      <li>You want narrow specialist work. This role flexes from AI-clone mixing to podcast clipping to brand work in the same week.</li>
+    </ul>
+    <p style="margin-top: 20px;">We need someone who is <strong>very, very hardworking.</strong> That is not a euphemism. We work hard here, and we are looking for someone who finds that energising rather than exhausting.</p>
+  </section>
+
+  <section class="block">
+    <h2>Why join SocialSEO</h2>
+    <div class="perks-grid">
+      <div class="perk">
+        <div class="perk-num">01</div>
+        <div class="perk-title">AI masterclass on the job</div>
+        <p class="perk-desc">In-house Indian-skin-tone AI clone workflow. Tools and pipeline shipping 100M+ views a month. Skills nobody else in India has for another 2 years.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">02</div>
+        <div class="perk-title">Founding-team seat</div>
+        <p class="perk-desc">Small team, direct line to the founder, shape how the agency scales. No corporate process.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">03</div>
+        <div class="perk-title">Work everyone watches</div>
+        <p class="perk-desc">Raj Shamani. Badshah. BJP. The kind of resume line that does not show up at most agencies.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">04</div>
+        <div class="perk-title">Build your own brand</div>
+        <p class="perk-desc">We fund your personal creator page to 10K followers in 3 months. You earn direct revenue share on sponsorships and brand deals that land on your page. The page stays yours.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-num">05</div>
+        <div class="perk-title">Performance bonus</div>
+        <p class="perk-desc">On top of base, tied to delivery, quality, and viral wins. Real metrics, not vibes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply-section">
+    <h2>Apply</h2>
+    <p>The application form takes 6-10 minutes. We read every submission. If your work fits, we reach out within 5 working days.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczO0MVe4hQMuUxbClPDwxPAqB4fu2yr9JMQzRtMES_uWBniQ/viewform" class="apply-btn-large" target="_blank">Apply for Senior Video Editor →</a>
+    <p class="apply-note">Bring 3 reels you personally edited (link + view count + your exact role on each).</p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 SocialSEO LLP · <a href="/careers.html">All open roles</a>
+</footer>
+
+</body>
+</html>
